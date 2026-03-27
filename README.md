@@ -1,5 +1,7 @@
 Disaster Early Warning and Relief Resource Management System (DEWARMS)
+
 Welcome to the DEWARMS project! This repository contains code and resources for classifying disaster-related images using advanced convolutional neural network techniques. The primary goal is to develop a robust CNN model that assists emergency response teams in rapid disaster identification and resource allocation through automated image analysis.
+
 Project Overview
 Natural disasters pose significant threats to communities worldwide, but their impact can be substantially reduced through early detection and efficient resource management. This project uses custom convolutional neural networks to:
 
@@ -45,6 +47,7 @@ Test Set Evaluation: Final model assessment on unseen disaster scenarios
 Probability Distributions: Confidence scores for each disaster type prediction to support decision-making
 
 How to Use
+
 Training Mode
 
 Clone this repository to your local machine
@@ -96,5 +99,6 @@ Visual evaluation through confusion matrices aids in system reliability assessme
 
 Contributions
 Contributions to improve the project are welcome! Feel free to fork this repository, raise issues, or create pull requests.
+
 Disclaimer
 This model is developed for research and disaster preparedness purposes. It should not be used as the sole basis for emergency response decisions. Always combine automated analysis with expert human assessment and follow established emergency management protocols. Performance may vary depending on disaster scenarios, image quality, and environmental conditions.
