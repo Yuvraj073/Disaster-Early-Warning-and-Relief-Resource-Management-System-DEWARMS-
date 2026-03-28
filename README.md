@@ -73,20 +73,34 @@ Use the model for batch inference or integration into emergency response applica
 Customization Options
 
 --img_size: Image dimensions (default: 100x100)
+
 --epochs: Training epochs (default: 100)
+
 --batch_size: Batch size (default: 8)
+
 --val_split: Validation set fraction (default: 0.1)
+
 --test_split: Test set fraction (default: 0.1)
+
 --lr: Learning rate (default: 0.001)
+
 --rotation: Rotation range for augmentation (default: 180°)
+
 --zoom: Zoom range (default: 0.1)
+
 
 Requirements
 numpy
+
 opencv-python
+
 scikit-learn
+
 matplotlib
+
 tensorflow>=2.0
+
+
 Emergency Management Applications
 This model is designed for disaster response and relief operations where:
 
