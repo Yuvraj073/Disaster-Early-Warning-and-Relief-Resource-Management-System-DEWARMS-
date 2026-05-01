@@ -1,124 +1,89 @@
-Disaster Early Warning and Relief Resource Management System (DEWARMS)
-1. Introduction
+# Disaster Early Warning and Relief Resource Management System (DEWARMS)
 
-Natural disasters pose significant threats to human life, infrastructure, and economic stability. Rapid identification and classification of disaster scenarios are critical for effective emergency response and resource allocation. This project focuses on developing an intelligent system using deep learning techniques to automate disaster detection from images.
+Welcome to the DEWARMS project! This repository contains code and resources for classifying disaster-related images using advanced convolutional neural network techniques. The primary goal is to develop a robust CNN model that assists emergency response teams in rapid disaster identification and resource allocation through automated image analysis.
 
-The proposed system, DEWARMS, leverages Convolutional Neural Networks (CNNs) to classify disaster-related images into multiple categories, thereby assisting emergency response teams in making timely and informed decisions.
+## Project Overview
 
-2. Project Overview
+Natural disasters pose significant threats to communities worldwide, but their impact can be substantially reduced through early detection and efficient resource management. This project uses custom convolutional neural networks to:
 
-This project implements a deep learning-based image classification system designed for disaster management applications. The system aims to:
+- Analyze disaster scene images automatically across multiple disaster categories
+- Classify images with high accuracy for rapid disaster type identification
+- Provide emergency response teams with automated situational awareness tools
+- Achieve optimal performance through advanced data augmentation and training strategies
 
-Automatically analyze disaster scene images across multiple categories
-Accurately classify disaster types for rapid identification
-Provide real-time situational awareness to emergency teams
-Improve response efficiency through automated decision support
-Optimize model performance using data augmentation and training strategies
+## Data
 
-The solution is designed for scalability and deployment in real-world emergency response environments.
+The dataset used for this project consists of disaster-related images organized into category-specific folders representing different disaster types. Images are automatically loaded from subdirectories, preprocessed, and resized to 100x100 pixels (configurable) for optimal model performance.
 
-3. Dataset Description
+## Model Architecture
 
-The dataset consists of disaster-related images organized into category-specific directories, where each folder represents a distinct disaster type.
+The deep learning model consists of the following key components:
 
-Key characteristics include:
+- **Convolutional Layers**: 3 Conv2D layers with progressive filter complexity (25→50→70)
+- **Batch Normalization**: Applied after second and third convolutional layers for training stability
+- **MaxPooling Layers**: Strategic pooling for spatial dimension reduction and feature extraction
+- **Dense Layers**: Two fully connected layers (100 units each) for high-level feature learning
+- **Dropout Regularization**: 0.25 dropout rate to prevent overfitting
+- **Softmax Activation**: Multi-class probability distribution output for disaster categorization
+- **Data Augmentation**: Rotation, zoom, shift, and flip transformations for improved generalization
 
-Image formats supported: JPG and PNG
-Automatic loading from subdirectories
-Image resizing to 100 × 100 pixels (configurable)
-Preprocessing includes normalization and color space adjustments
+## Key Features
 
-This structured dataset enables efficient training and evaluation of the classification model.
+- **Custom CNN Architecture**: Three-stage convolutional network optimized for disaster scene classification
+- **Comprehensive Data Augmentation**: Rotation (180°), zoom (0.1), width/height shifts, and horizontal/vertical flips to handle varied disaster imagery
+- **Advanced Callbacks**: ReduceLROnPlateau for adaptive learning rate and EarlyStopping for optimal convergence
+- **Triple Dataset Split**: Separate train, validation, and test sets with stratified sampling for reliable evaluation
+- **Flexible Configuration**: Command-line interface for all hyperparameters and training options
+- **Model Checkpointing**: Automatic saving of best model weights during training for deployment readiness
+- **Detailed Evaluation**: Confusion matrices for both validation and test sets with visualization
+- **Class Balancing**: Stratified splitting to maintain disaster category distribution across datasets
 
-4. Model Architecture
+## Performance Metrics
 
-The system utilizes a custom Convolutional Neural Network (CNN) integrated within a complete training pipeline.
+The model is evaluated using comprehensive classification metrics critical for emergency response:
 
-4.1 Convolutional Layers
-Three Conv2D layers with increasing filter sizes: 25 → 50 → 70
-Extract hierarchical spatial features from images
-4.2 Batch Normalization
-Applied after the second and third convolutional layers
-Improves training stability and convergence
-4.3 Pooling Layers
-MaxPooling layers reduce spatial dimensions
-Enhance feature extraction efficiency
-4.4 Fully Connected Layers
-Two dense layers with 100 neurons each
-Enable high-level feature representation
-4.5 Regularization
-Dropout rate: 0.25
-Prevents overfitting during training
-4.6 Output Layer
-Softmax activation function
-Produces probability distribution across multiple disaster classes
-4.7 Data Augmentation
-Rotation (up to 180°)
-Zoom transformations
-Width and height shifts
-Horizontal and vertical flipping
-5. Key Features
-Custom CNN Architecture optimized for disaster image classification
-Advanced Data Augmentation to improve generalization
-Automated Training Pipeline with preprocessing and validation
-Adaptive Learning Techniques using callbacks such as EarlyStopping and ReduceLROnPlateau
-Model Checkpointing for saving optimal weights
-Stratified Dataset Splitting for balanced training, validation, and testing
-Real-Time Inference Capability for emergency deployment
-6. Performance Metrics
+- **Accuracy**: Overall classification performance across all disaster categories
+- **Confusion Matrix**: Detailed breakdown of predictions vs. true disaster types
+- **Per-Class Error Rates**: Fraction of misclassified samples for each disaster category
+- **Validation Performance**: Continuous monitoring during training to prevent overfitting
+- **Test Set Evaluation**: Final model assessment on unseen disaster scenarios
+- **Probability Distributions**: Confidence scores for each disaster type prediction to support decision-making
 
-The model is evaluated using metrics relevant to disaster response applications:
+## How to Use
 
-Accuracy: Overall classification performance
-Confusion Matrix: Detailed comparison of predicted vs. actual classes
-Per-Class Error Rate: Misclassification analysis for each disaster type
-Validation Performance: Monitored during training
-Test Set Evaluation: Final assessment on unseen data
-Probability Scores: Confidence levels for predictions
-7. Implementation Steps
-Training Phase
-Clone the repository to the local system
+1. Clone this repository to your local machine
+2. Install the required dependencies using `pip install -r requirements.txt`
+3. Organize your disaster image dataset in subdirectories (each subdirectory = one disaster type)
+4. Run the training command with your dataset path: `python main1.py train --data_dir /path/to/disaster_dataset --epochs 100 --batch_size 8`
+5. Monitor training progress with real-time validation metrics
+6. The best model will be saved automatically as `in_estimator_2.model`
+7. For prediction, use: `python main1.py predict --model in_estimator_2.model --image /path/to/disaster_scene.jpg`
 
-Install dependencies using:
+## Requirements
 
-pip install -r requirements.txt
-Organize dataset into subdirectories (one folder per disaster type)
+```
+numpy
+opencv-python
+scikit-learn
+matplotlib
+tensorflow>=2.0
+```
 
-Run the training command:
+## Emergency Management Applications
 
-python main1.py train --data_dir /path/to/dataset --epochs 100 --batch_size 8
-Monitor training and validation metrics
-Best model is saved automatically
-Prediction Phase
-Load the trained model
+This model is designed for disaster response and relief operations where:
 
-Run prediction command:
+- Rapid disaster type identification enables appropriate resource deployment
+- Automated image analysis reduces response time in critical situations
+- Multi-category classification supports diverse disaster scenarios (floods, fires, earthquakes, etc.)
+- Probability scores help prioritize emergency response efforts
+- Real-time inference capabilities support field operations and command centers
+- Visual evaluation through confusion matrices aids in system reliability assessment
 
-python main1.py predict --model model_name --image image_path
-Obtain predicted disaster class and probability distribution
-8. Applications
+## Contributions
 
-The system supports real-world emergency management scenarios:
+Contributions to improve the project are welcome! Feel free to fork this repository, raise issues, or create pull requests.
 
-Rapid identification of disaster types (floods, fires, earthquakes, etc.)
-Reduced response time through automated image analysis
-Improved resource allocation and prioritization
-Support for command centers and field operations
-Reliable evaluation through visual performance metrics
-9. Limitations and Disclaimer
+## Disclaimer
 
-This model is developed for research and disaster preparedness purposes. It should not be used as the sole basis for emergency response decisions. Human expertise and established emergency protocols must always be followed.
-
-Performance may vary depending on image quality, environmental conditions, and diversity of disaster scenarios.
-
-10. Conclusion
-
-The DEWARMS system demonstrates the effectiveness of deep learning in disaster management. By leveraging a custom CNN architecture along with advanced preprocessing and training techniques, the model provides accurate and efficient disaster classification.
-
-Future enhancements may include real-time video analysis, integration with IoT-based alert systems, and incorporation of explainable AI for improved interpretability.
-
-11. Final Disclaimer
-
-The DEWARMS system is intended strictly for academic, research, and disaster preparedness applications. While it provides automated disaster classification and decision support, it must not replace professional judgment or official emergency response systems. All outputs should be validated by trained personnel before taking critical actions.
-
-The developers are not responsible for any direct or indirect consequences arising from the use of this system in real-world disaster scenarios.
+This model is developed for research and disaster preparedness purposes. It should not be used as the sole basis for emergency response decisions. Always combine automated analysis with expert human assessment and follow established emergency management protocols.
