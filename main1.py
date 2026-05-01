@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import os
 import argparse
 import glob
@@ -104,7 +102,7 @@ def train(args):
     X, y = load_dataset(args.data_dir, img_size=args.img_size)
     print("Loaded", X.shape[0], "images.")
 
-    # Encode labels
+    # Encode label
     le = LabelEncoder()
     y_encoded = le.fit_transform(y)
     class_names = le.classes_
