@@ -297,7 +297,7 @@ def main():
     p_train.add_argument('--hflip', action='store_true', default=True)
     p_train.add_argument('--vflip', action='store_true', default=True)
 
-    # Predict sub-command
+    # Predict sub-command 
     p_pred = sub.add_parser('predict')
     p_pred.add_argument('--model', required=True)
     p_pred.add_argument('--image', required=True)
@@ -313,3 +313,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
