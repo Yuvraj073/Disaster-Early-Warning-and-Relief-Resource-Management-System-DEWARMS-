@@ -67,6 +67,7 @@ opencv-python
 scikit-learn
 matplotlib
 tensorflow>=2.0
+
 ```
 
 ## Emergency Management Applications
