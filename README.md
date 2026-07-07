@@ -13,7 +13,7 @@ Natural disasters pose significant threats to communities worldwide, but their i
 
 ## Data
 
-The dataset used for this project consists of disaster-related images organized into category-specific folders representing different disaster types. Images are automatically loaded from subdirectories, preprocessed, and resized to 100x100 pixels (configurable) for optimal model performance.
+The dataset used for this project consists of disaster-related images organized into category-specific folders representing different disaster types. Images are automatically loaded from subdirectories, preprocessed, and resized to 100 x 100 pixels (configurable) for optimal model performance.
 
 ## Model Architecture
 
